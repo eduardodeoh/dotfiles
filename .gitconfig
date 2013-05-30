@@ -1,0 +1,166 @@
+# This is the config file, and
+# a '#' or ';' character indicates
+# a comment
+
+#Sources
+# http://blog.thefrontiergroup.com.au/2012/07/git-basics-cleaning-up-excess-branches/
+# http://kparal.wordpress.com/2011/04/15/git-tip-of-the-day-pruning-stale-remote-tracking-branches/
+# https://github.com/thoughtbot/dotfiles/blob/master/gitconfig
+
+[github]
+	user = eduardodeoh
+
+#General colors
+[color]
+	ui = auto
+
+#Status Colors
+[color "status"]
+	changed = yellow
+	added = green
+	untracked = red
+
+#Branch Colors
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+#Diffs Colors
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+#Core Configs
+[core]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	autocrlf = input
+	excludesfile = ~/.gitignore
+	editor = vim
+
+#Personal Information
+[user]
+	name = Eduardo de O. Hernandes
+	email = eduardodeoh@gmail.com
+
+#Alias :D
+[alias]
+	#git add
+	aa = !git add --all && git status -sb
+	au = !git add -u && git status -sb
+	
+	#git branch
+	;List all branches (local and remote)
+	ba = branch -a
+	;List all branches in detail (local and remote)
+	bav = branch -av
+	;List only remote branches
+	br = branch -r
+	;List only local branches
+	bl = branch
+	;List all branches that have been merged into your current branch
+	bm = branch -a --merged
+	;List local branches that have been merged into yout current branch
+	blm = branch --merged
+	;List remote branches that have been merged into yout current branch
+	brm = branch -r --merged
+	;List all branches that haven't been merged into your current branch
+	bnm = branch -a --no-merged
+
+	#git commit
+	ca = commit --amend
+	ci = commit -v -a
+
+	#git config
+	cf = config -e --global
+
+	#git clone
+	cl = clone
+
+	#git checkout
+	co = checkout
+
+	#git diff
+	dc = diff --cached
+	df = diff
+
+	#git fetch
+	;Verify updates of remote repo
+	fe = fetch
+	;Verify updates of remote repo and prune(clean) local branches that were deleted in remote repo
+	;fp = fetch -p
+	fp = fetch --prune
+	
+
+	#git log
+	log = log -p
+	logd = log --graph --decorate --pretty=oneline --abbrev-commit
+	logda = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+
+	#git ls
+	ls = ls-files
+	; Show files ignored by git:
+	ign = ls-files -o -i --exclude-standard
+
+	
+	#git rebase
+	;Rebase current branch with remote branch $1 - $1 = name of remote branch
+	rebase-branch = !sh -c 'git fetch origin && git rebase origin/$1' -
+	;Rebase current branch with remote branch
+	update-branch = pull --rebase
+	;Squash commits
+	squash = rebase -i @{u}
+
+
+	#git remote
+	;Show information about remote repository - $1 = name of remote server
+	rs = !sh -c 'git remote show $1' -
+	; List remote-tracking branches that have been pruned
+	rpl = !sh -c 'git remote prune $1 --dry-run' -
+	; Remove local branches that have been pruned from remote repo
+	rp = !sh -c 'git remote prune $1' -
+
+
+	#git status
+	st = status
+
+
+	#Gem hub - Github
+	;Generate pull request at Github interface
+	pr = !hub pull-request
+
+	;Create local branch from the remote branch - $1 = name of branch / $2 = name of remote server
+	create-branch-remote = !sh -c 'git fetch && git checkout -b $1 $2/$1' -
+
+	
+	;Create only local branch - $1 = name of branch
+	create-branch-local = !sh -c 'git checkout -b $1' -
+
+
+	;Create local and remote branch - $1 = name of branch / $2 = name of remote server
+	create-branch = !sh -c 'git push $2 HEAD:refs/heads/$1 && git fetch $2 && git branch --track $1 $2/$1 && cd . && git checkout $1' -
+
+
+	;Remove local and remote branch - $1 = name of branch  / $2 = name of remote server
+	delete-branch = !sh -c 'git push $2 :refs/heads/$1 && git remote prune $2 $1 && git branch -D $1' -
+	
+
+	;Remove only local branch - $1 = name of branch / $2 = name of remote server
+	;delete-branch-local = !sh -c 'git branch -d $1' -
+	delete-branch-local = !sh -c 'git branch -D $1' -
+
+
+	;Remove only remote branch - $1 = name of branch / $2 = name of remote server 
+	;delete-branch-remote = !sh -c 'git push $2 :$1 && git remote prune $2' -
+	;delete-branch-remote = !sh -c 'git push $2 --delete $1 && git remote prune $2' -
+	delete-branch-remote = !sh -c 'git push $2 :refs/heads/$1 && git remote prune $2 $1' -
+
+	
+	#Verify this alias!
+	#pull-request-branch = !sh -c 'hub pull-request -h origin:develop' -
+	#pull-request-issue = !sh -c 'hub pull-request -h origin:develop -i $1' - 
+	#pull-request-master = !sh -c 'git update-develop && hub pull-request -h origin:master' -
