@@ -83,6 +83,17 @@
 	#git checkout
 	co = checkout
 
+	#GIT-ENCRYPT - https://github.com/shadowhand/git-encrypt
+	encrypt = !sh -c 'gitcrypt init'
+	decrypt = !sh -c 'gitcrypt init && git reset --hard HEAD'
+
+	#GITSUBTREE - https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
+	subtree-add = !sh -c 'git subtree add --prefix=$2 $1/master --squash'
+	subtree-fetch = !sh -c 'git fetch $1'
+	subtree-pull = !sh -c 'git subtree pull --prefix=$2 $1'
+        # $1 = git url, $2 = prefix path
+
+
 	#git diff
 	dc = diff --cached
 	df = diff
@@ -164,3 +175,5 @@
 	#pull-request-branch = !sh -c 'hub pull-request -h origin:develop' -
 	#pull-request-issue = !sh -c 'hub pull-request -h origin:develop -i $1' - 
 	#pull-request-master = !sh -c 'git update-develop && hub pull-request -h origin:master' -
+[push]
+	default = matching
