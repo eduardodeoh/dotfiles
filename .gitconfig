@@ -88,10 +88,15 @@
 	decrypt = !sh -c 'gitcrypt init && git reset --hard HEAD'
 
 	#GITSUBTREE - https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
-	subtree-add = "!f() { git remote add $2 $1; git-subtree add -P $3 $2/master ;}; f"
-	subtree-fetch = !sh -c 'git fetch $1'
-	subtree-pull = "f() { git subtree pull --prefix=$2 $1 ;}; f"
+	
 	# $1 = git url, $2 = remote name, $3 = prefix path
+	subtree-add = "!f() { git remote add $2 $1; git fetch $2; git-subtree add --squash -P $3 $2/master ;}; f"
+	
+	# $1 = remote name
+	subtree-fetch = !sh -c 'git fetch $1'
+
+	# $1 = remote name; $2 = prefix path
+	subtree-pull = "!f() { git subtree pull -P $2 $1 ;}; f"
 
 	#git diff
 	dc = diff --cached
