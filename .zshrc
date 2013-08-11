@@ -5,7 +5,13 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+
+ZSH_THEME="powerline"
+POWERLINE_NO_BLANK_LINE="true"
+POWERLINE_FULL_CURRENT_PATH="true"
+POWERLINE_SHOW_GIT_ON_RIGHT="true"
+POWERLINE_DETECT_SSH="true"
 
 #EDITOR
 EDITOR="vim"
@@ -44,7 +50,7 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git command-not-found debian encode64 gem gitfast )
-plugins=(command-not-found debian encode64 gem gitfast rails3 rails4 ruby sublime ssh-agent vagrant capistrano bundler zsh-syntax-highlighting)
+plugins=(command-not-found debian encode64 gem gitfast rails3 rails4 ruby sublime ssh-agent vagrant capistrano bundler zsh-syntax-highlighting rbenv history history-substring-search last-working-dir colorize colored-man extract per-directory-history safe-paste themes cpanm autojump)
 
 source $ZSH/oh-my-zsh.sh
 
