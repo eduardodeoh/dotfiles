@@ -68,7 +68,7 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=15
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -77,10 +77,10 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -91,9 +91,15 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git command-not-found debian encode64 gem gitfast )
-plugins=(command-not-found debian encode64 gem gitfast rails3 rails4 ruby sublime ssh-agent vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract per-directory-history safe-paste themes cpanm autojump)
+plugins=(command-not-found debian encode64 gem gitfast rails3 rails4 ruby sublime ssh-agent vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm autojump tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
+
 # Customize to your needs...
 export PATH=$PATH:./bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/bin:/home/vagrant/bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/home/vagrant/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
+
+
+#AKA GEM
+#http://github.com/PogiNate/A.K.A.
+source ~/.alias
