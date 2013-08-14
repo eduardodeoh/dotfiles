@@ -7,11 +7,46 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 
+#https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
 ZSH_THEME="powerline"
 POWERLINE_NO_BLANK_LINE="true"
 POWERLINE_FULL_CURRENT_PATH="true"
 POWERLINE_SHOW_GIT_ON_RIGHT="true"
 POWERLINE_DETECT_SSH="true"
+
+# Load the zsh-syntax-highlighting plugin
+#https://github.com/zsh-users/zsh-syntax-highlighting
+#http://blog.patshead.com/2012/01/using-and-customizing-zsh-syntax-highlighting-with-oh-my-zsh.html
+if [ -f $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+then
+  # Enable highlighters
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+  source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+  # Override highlighter colors
+  #ZSH_HIGHLIGHT_STYLES[default]=none
+  ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=009
+  ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
+  ZSH_HIGHLIGHT_STYLES[alias]=fg=white,bold
+  ZSH_HIGHLIGHT_STYLES[builtin]=fg=white,bold
+  ZSH_HIGHLIGHT_STYLES[function]=fg=white,bold
+  ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
+  ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
+  ZSH_HIGHLIGHT_STYLES[commandseparator]=none
+  ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
+  ZSH_HIGHLIGHT_STYLES[path]=fg=214,underline
+  ZSH_HIGHLIGHT_STYLES[globbing]=fg=063
+  ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
+  ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
+  ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
+  ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+  ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=063
+  ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=063
+  ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=009
+  ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
+  ZSH_HIGHLIGHT_STYLES[assign]=none
+fi
 
 #EDITOR
 EDITOR="vim"
@@ -50,7 +85,7 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git command-not-found debian encode64 gem gitfast )
-plugins=(command-not-found debian encode64 gem gitfast rails3 rails4 ruby sublime ssh-agent vagrant capistrano bundler zsh-syntax-highlighting rbenv history history-substring-search last-working-dir colorize colored-man extract per-directory-history safe-paste themes cpanm autojump)
+plugins=(command-not-found debian encode64 gem gitfast rails3 rails4 ruby sublime ssh-agent vagrant capistrano bundler rbenv history history-substring-search last-working-dir colorize colored-man extract per-directory-history safe-paste themes cpanm autojump)
 
 source $ZSH/oh-my-zsh.sh
 
