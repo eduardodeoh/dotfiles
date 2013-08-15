@@ -102,4 +102,7 @@ export PATH=$PATH:./bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-
 
 #AKA GEM
 #http://github.com/PogiNate/A.K.A.
-source ~/.alias
+if [ -f ~/.alias ]
+then
+  source ~/.alias
+fi
