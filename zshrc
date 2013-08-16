@@ -11,6 +11,16 @@ ZSH=$HOME/.oh-my-zsh
 #https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
 if [ -f $ZSH/custom/themes/powerline-theme/powerline.zsh-theme ]
 then
+
+  #Install patched fonts
+  #git clone https://github.com/Lokaltog/powerline-fonts
+  ##http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
+  #mkdir ~/.fonts
+  #cp powerline-fonts/UbuntuMono/Ubuntu\ Mono\ derivative\ Powerline* ~/.fonts/
+  #fc-cache -vf ~/.fonts
+  ##Setting default font for system
+  #gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono derivative Powerline 13'
+
   ZSH_THEME="powerline"
   POWERLINE_NO_BLANK_LINE="true"
   #POWERLINE_FULL_CURRENT_PATH="true"
@@ -91,7 +101,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git command-not-found debian encode64 gem gitfast )
-plugins=(command-not-found debian gem gitfast rails3 rails4 ruby sublime ssh-agent vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
+plugins=(command-not-found debian gem gitfast rails3 rails4 ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
