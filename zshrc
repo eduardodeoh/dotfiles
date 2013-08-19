@@ -101,13 +101,22 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git command-not-found debian encode64 gem gitfast )
-plugins=(command-not-found debian gem gitfast rails3 rails4 ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
+plugins=(command-not-found debian gem gitfast rails3 rails4 ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm fasd tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
 
 # Customize to your needs...
 export PATH=$PATH:./bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/bin:/home/vagrant/bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/home/vagrant/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
+
+
+
+#ZSH Complestions for apt-fast
+#https://github.com/ilikenwf/apt-fast
+if [ -f ~/.oh-my-zsh/custom/completions/apt-fast/completions/zsh/_apt-fast ]
+then
+  source ~/.oh-my-zsh/custom/completions/apt-fast/completions/zsh/_apt-fast 
+fi
 
 
 #AKA GEM
