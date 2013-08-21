@@ -1,5 +1,5 @@
 alias uu="sudo apt-fast update && sudo apt-fast upgrade -y"
 alias -g gp="| grep -i"
 alias -s rb=vim
-alias ssh='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && ssh'
-alias git='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && git'
+#alias ssh='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && ssh'
+#alias git='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && git'
