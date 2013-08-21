@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 #Exceptions to .dotfiles at $HOME
-arr=(fasd gitencrypt)
+arr=(bin bin_sources)
 
 
 cd ~; 
@@ -9,8 +9,7 @@ cd ~;
 #Symlink dotfiles
 for i in `ls dotfiles`
 do
-  #if ! [[ ${arr[(r)$i]} == $i ]]
-  if [ "$i" != "bin" ]
+  if ! [[ ${arr[(r)$i]} == $i ]]
     then
       echo "ln -nfs dotfiles/$i ~/.${i}"
     fi
@@ -21,7 +20,7 @@ done
 if ! [ -d ~/bin ]
 then
   mkdir ~/bin
-  ln -nfs dotfiles/bin ~ 
+  ln -nfs ~/dotfiles/bin_sources ~ 
 else
   echo "~/bin exists..."
 fi
