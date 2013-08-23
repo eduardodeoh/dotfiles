@@ -1,52 +1,95 @@
 set nocompatible             "Running Vim, not vi!
 
-" Vundle - https://github.com/gmarik/vundle
 " Autoinstall Vundle - http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+" NeoBundle Plugin Manager - ttps://github.com/Shougo/neobundle.vim
+" Setting up NeoBundle
+let iCanHandleNeoBundle=1
+let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+   echo "Installing NeoBundle.."
+   echo ""
+   silent !mkdir -p ~/.vim/bundle
+   silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+   let iCanHandleNeoBundle=0
+endif
 
-" Setup Bundle Support {
-" The next three lines ensure that the ~/.vim/bundle/ system works
-filetype off		     "required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
 
-"let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 
 " ######## My Bundles here ####################
 
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc', {
+  \     'build' : {
+  \     'windows' : 'make -f make_mingw32.mak',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \     }, 
+  \ }
+
 " Git wrapper - https://github.com/tpope/vim-fugitive
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 
 " NERTree - https://github.com/scrooloose/nerdtree
-Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/nerdtree'
 
 " vim-colors-solarized - https://github.com/altercation/vim-colors-solarized
-Bundle 'altercation/vim-colors-solarized'
+NeoBundle 'altercation/vim-colors-solarized'
 
 " Code Completion Engine - https://github.com/Valloric/YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe'
 
 " Syntastic - syntax checking - https://github.com/scrooloose/syntastic
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 
 " Easy Motion - https://github.com/Lokaltog/vim-easymotion
-Bundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 " Ful path fuzzy- https://github.com/kien/ctrlp.vim
-Bundle 'kien/ctrlp.vim'
+"Bundle 'kien/ctrlp.vim'
 
 " vim-rails - https://github.com/tpope/vim-rails
-Bundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rails'
 
 " Commenter - https://github.com/scrooloose/nerdcommenter
-Bundle 'scrooloose/nerdcommenter'
+"Bundle 'scrooloose/nerdcommenter'
 
 " Surroundings brackets, quotes, tags - https://github.com/tpope/vim-surround
-Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-surround'
 
 " vim repeat "." - https://github.com/tpope/vim-repeat
-Bundle 'tpope/vim-repeat'
+"Bundle 'tpope/vim-repeat'
+
+" Unite Vim - https://github.com/Shougo/unite.vim
+" http://bling.github.io//blog/2013/06/02/unite-dot-vim-the-plugin-you-didnt-know-you-need/
+NeoBundle 'Shougo/unite.vim'
+
+" https://github.com/Shougo/unite-help
+NeoBundle 'Shougo/unite-help'
+
+" https://github.com/Shougo/vimfiler.vim
+NeoBundle 'Shougo/vimfiler.vim'
+
+" https://github.com/Shougo/unite-outline
+NeoBundle 'Shougo/unite-outline'
+
+" http://code.hootsuite.com/vimshell/
+" https://github.com/Shougo/vimshell.vim
+NeoBundle 'Shougo/vimshell.vim'
+
+" https://github.com/mileszs/ack.vim
+NeoBundle 'mileszs/ack.vim'
+
+
+NeoBundle 'vim-ruby/vim-ruby' "Ruby
 
 " vim-scripts repos
 "Bundle 'L9'
@@ -71,7 +114,16 @@ Bundle 'tpope/vim-repeat'
 " Launch vim, run :BundleInstall (or vim +BundleInstall +qall for CLI lovers)
 " Installing requires Git and triggers Git clone for each configured repo to ~/.vim/bundle/.
 "
-" ##### END Bundle ##########################################3
+if iCanHandleNeoBundle == 0
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :NeoBundleInstall
+endif
+
+" Installation Check
+NeoBundleCheck
+
+" ##### END NeoBundle ##########################################
 
 
 " ####### My Customs ###############
@@ -163,3 +215,4 @@ set number 							"Line numbers on
 " ####### My Customs shortcuts #################
 map <C-n> :NERDTreeToogle<CR>
 
+nnoremap <C-p> :Unite file_rec/async<cr>
