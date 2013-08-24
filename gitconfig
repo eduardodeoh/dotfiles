@@ -174,7 +174,17 @@
 	;delete-branch-remote = !sh -c 'git push $2 --delete $1 && git remote prune $2' -
 	delete-branch-remote = !sh -c 'git push $2 :refs/heads/$1 && git remote prune $2 $1' -
 
-	
+  ;Undoing things - http://git-scm.com/book/en/Git-Basics-Undoing-Things
+  ;Git unstage
+  ;$1 path to file for unstage
+  unstage = !sh -c 'git reset HEAD $1' -
+
+  ;Git undo
+  ;$1 path to file for undo - Caution!
+  undo = !sh -c 'git checkout -- $1' - 
+
+
+
 	#Verify this alias!
 	#pull-request-branch = !sh -c 'hub pull-request -h origin:develop' -
 	#pull-request-issue = !sh -c 'hub pull-request -h origin:develop -i $1' - 
