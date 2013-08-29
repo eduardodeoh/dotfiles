@@ -88,8 +88,10 @@ NeoBundle 'Shougo/vimshell.vim'
 " https://github.com/mileszs/ack.vim
 NeoBundle 'mileszs/ack.vim'
 
-
 NeoBundle 'vim-ruby/vim-ruby' "Ruby
+
+"https://github.com/wikitopian/hardmode
+NeoBundle 'wikitopian/hardmode'
 
 " vim-scripts repos
 "Bundle 'L9'
@@ -204,15 +206,69 @@ set hlsearch						"highlight searches by default
 
 set ruler 							"Ruler on
 set number 							"Line numbers on
+set relativenumber      "Relative numbers
 
 " ###################################################
 
 
-
+" My auto commands
 " Auto start NERDTree
 " autocmd vimenter * NERDTree
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " ####### My Customs shortcuts #################
-map <C-n> :NERDTreeToogle<CR>
+"map <C-n> :NERDTreeToogle<CR>
 
 nnoremap <C-p> :Unite file_rec/async<cr>
+
+" dd in insert mode
+inoremap <c-d> <esc>ddi
+
+" uppercase in insert mode
+inoremap <c-u> <esc>viw<s-u>
+
+"Set leader to space
+let mapleader = " "
+
+"My mappings
+nnoremap <leader>d dd
+nnoremap <leader>cp yyp
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <leader>' viw<esc>a"<esc>hbi'<esc>lel
+nnoremap <leader>H <home>
+nnoremap <leader>L <end>
+
+"Toggle HardMode
+nnoremap <leader>hm ToggleHardMode()<cr>
+
+"http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
+"noremap <up> <nop>
+"noremap <down> <nop>
+"noremap <left> <nop>
+"noremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+
+noremap <f8> :set paste<cr>
+noremap<f9> :set nopaste<cr>
+inoremap <f8> <c-o>:set paste<cr>
+inoremap <f9> <nop>
+set pastetoggle=<f7>
+
+
+"Set exit insert mode
+inoremap <leader>jk <esc>
+inoremap <esc> <nop>
+
+"Set local leader
+let maplocalleader = "\\"
+
+"Edit my vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+"Reload my vimrc
+nnoremap <leader>rv :source $MYVIMRC<cr>
+
+
