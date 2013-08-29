@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Customize to your needs...
-export PATH=$PATH:./bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/bin:/home/vagrant/bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/plugins/ruby-build/bin:/home/vagrant/.rbenv/shims:/home/vagrant/.rbenv/bin:/home/vagrant/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin
+export PATH=$PATH:./bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin
 
 
 
@@ -115,7 +115,7 @@ export PATH=$PATH:./bin:/usr/local/heroku/bin:/home/vagrant/.rbenv/plugins/ruby-
 #https://github.com/ilikenwf/apt-fast
 if [ -f ~/.oh-my-zsh/custom/completions/apt-fast/completions/zsh/_apt-fast ]
 then
-  source ~/.oh-my-zsh/custom/completions/apt-fast/completions/zsh/_apt-fast 
+  source ~/.oh-my-zsh/custom/completions/apt-fast/completions/zsh/_apt-fast
 fi
 
 
