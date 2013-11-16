@@ -42,10 +42,12 @@ NeoBundle 'tpope/vim-fugitive'
 "Bundle 'scrooloose/nerdtree'
 
 " vim-colors-solarized - https://github.com/altercation/vim-colors-solarized
-NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'chriskempson/base16-vim'
+
 
 " Code Completion Engine - https://github.com/Valloric/YouCompleteMe
-NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Valloric/YouCompleteMe'
 
 " Syntastic - syntax checking - https://github.com/scrooloose/syntastic
 NeoBundle 'scrooloose/syntastic'
@@ -140,8 +142,11 @@ filetype plugin on
 syntax on
 
 " Set vim-colors-solarized
-set background=light
-colorscheme solarized
+"set background=light
+"colorscheme solarized
+set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-tomorrow
 
 if has('gui_running')
     set background=light
@@ -166,6 +171,7 @@ set winwidth=80
 set title															"change terminal's title
 set backspace=2
 set autoread													"reload files changed outside vim							
+set t_Co=256
 
 " Preserve large pastes 
 "set pastetoggle=<F2>
@@ -259,8 +265,9 @@ set pastetoggle=<f7>
 
 
 "Set exit insert mode
+"imap <leader>jk <esc>
 inoremap <leader>jk <esc>
-inoremap <esc> <nop>
+"inoremap <esc> <nop>
 
 "Set local leader
 let maplocalleader = "\\"
@@ -270,5 +277,4 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 "Reload my vimrc
 nnoremap <leader>rv :source $MYVIMRC<cr>
-
 

@@ -110,6 +110,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:./bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin
 
 
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 #ZSH Complestions for apt-fast
 #https://github.com/ilikenwf/apt-fast
