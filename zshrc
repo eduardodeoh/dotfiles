@@ -107,8 +107,13 @@ plugins=(command-not-found debian gem gitfast rails4 ruby sublime vagrant capist
 source $ZSH/oh-my-zsh.sh
 
 
+export  EC2_HOME="$HOME/ec2-ami-tools-1.4.0.9"
+
+export JAVA_HOME="/opt/jdk6_u45"
+export JRE_HOME="/opt/jre6_u45"
+
 # Customize to your needs...
-export PATH=$PATH:./bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin
+export PATH=$PATH:./bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$HOME/packer:$EC2_HOME/bin:$JAVA_HOME/bin
 
 
 export TERM=xterm-256color
