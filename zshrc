@@ -14,12 +14,6 @@ then
 
   #Install patched fonts
   #git clone https://github.com/Lokaltog/powerline-fonts
-  ##http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
-  #mkdir ~/.fonts
-  #cp powerline-fonts/UbuntuMono/Ubuntu\ Mono\ derivative\ Powerline* ~/.fonts/
-  #fc-cache -vf ~/.fonts
-  ##Setting default font for system
-  #gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono derivative Powerline 13'
 
   ZSH_THEME="powerline"
   POWERLINE_NO_BLANK_LINE="true"
@@ -36,12 +30,12 @@ fi
 # Load the zsh-syntax-highlighting plugin
 #https://github.com/zsh-users/zsh-syntax-highlighting
 #http://blog.patshead.com/2012/01/using-and-customizing-zsh-syntax-highlighting-with-oh-my-zsh.html
-if [ -f $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+if [ -f $ZSH/custom/oh-my-zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
 then
   # Enable highlighters
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
-  source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $ZSH/custom/oh-my-zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
   # Override highlighter colors
   #ZSH_HIGHLIGHT_STYLES[default]=none
