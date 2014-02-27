@@ -27,7 +27,7 @@ then
   POWERLINE_SHOW_GIT_ON_RIGHT="true"
   POWERLINE_DETECT_SSH="true"
 else
-  ZSH_THEME="robbyrussell"
+  ZSH_THEME="agnoster"
 fi
 
 # Load the zsh-syntax-highlighting plugin
@@ -102,7 +102,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git command-not-found debian encode64 gem gitfast )
 #plugins=(command-not-found debian gem gitfast rails3 rails4 ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
-plugins=(command-not-found debian gem gitfast rails4 ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
+plugins=(command-not-found debian gem gitfast rails ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
