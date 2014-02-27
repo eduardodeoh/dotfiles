@@ -9,7 +9,7 @@ ZSH=$HOME/.oh-my-zsh
 
 #Zsh Powerline Theme
 #https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
-if [ -f $ZSH/custom/themes/powerline-theme/powerline.zsh-theme ]
+if [ -f $ZSH/custom/powerline.zsh-theme ]
 then
 
   #Install patched fonts
@@ -23,9 +23,12 @@ then
 
   ZSH_THEME="powerline"
   POWERLINE_NO_BLANK_LINE="true"
-  #POWERLINE_FULL_CURRENT_PATH="true"
+  POWERLINE_FULL_CURRENT_PATH="true"
   POWERLINE_SHOW_GIT_ON_RIGHT="true"
   POWERLINE_DETECT_SSH="true"
+  POWERLINE_HIDE_USER_NAME="false"
+  POWERLINE_HIDE_HOST_NAME="true"
+
 else
   ZSH_THEME="agnoster"
 fi
@@ -67,6 +70,9 @@ fi
 #EDITOR
 EDITOR="vim"
 
+#Default User
+#DEFAULT_USER="eduardo"
+
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
@@ -75,10 +81,10 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 #CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
-export UPDATE_ZSH_DAYS=15
+#export UPDATE_ZSH_DAYS=15
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -100,17 +106,9 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git command-not-found debian encode64 gem gitfast )
-#plugins=(command-not-found debian gem gitfast rails3 rails4 ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
-plugins=(command-not-found debian gem gitfast rails ruby sublime vagrant capistrano bundler rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator)
+plugins=(osx command-not-found gem gitfast rails ruby sublime vagrant capistrano bundler brew rbenv history-substring-search last-working-dir colorize colored-man extract themes cpanm tmuxinator bundler cap)
 
 source $ZSH/oh-my-zsh.sh
-
-
-export  EC2_HOME="$HOME/ec2-ami-tools-1.4.0.9"
-
-export JAVA_HOME="/opt/jdk6_u45"
-export JRE_HOME="/opt/jre6_u45"
 
 # Customize to your needs...
 export PATH=$PATH:./bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin:$HOME/packer:$EC2_HOME/bin:$JAVA_HOME/bin
@@ -118,14 +116,6 @@ export PATH=$PATH:./bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/us
 
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
-
-#ZSH Complestions for apt-fast
-#https://github.com/ilikenwf/apt-fast
-if [ -f ~/.oh-my-zsh/custom/completions/apt-fast/completions/zsh/_apt-fast ]
-then
-  source ~/.oh-my-zsh/custom/completions/apt-fast/completions/zsh/_apt-fast
-fi
-
 
 #AKA GEM
 #http://github.com/PogiNate/A.K.A.
