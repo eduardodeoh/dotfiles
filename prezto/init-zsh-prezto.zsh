@@ -1,11 +1,9 @@
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-setopt EXTENDED_GLOB
-
 #Default files to prezto
 ln -sf $HOME/.zprezto/runcoms/zlogout $HOME/.zlogout
-ln -sf $HOME/.zprezto/runcoms/zlogout $HOME/.zlogin
-ln -sf $HOME/.zprezto/runcoms/zlogout $HOME/.zshenv
+ln -sf $HOME/.zprezto/runcoms/zlogin $HOME/.zlogin
+ln -sf $HOME/.zprezto/runcoms/zshenv $HOME/.zshenv
 
 #My files to prezto
 ln -sf $HOME/dotfiles/prezto/zprofile $HOME/.zprofile
