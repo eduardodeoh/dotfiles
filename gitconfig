@@ -96,7 +96,7 @@
 	subtree-fetch = !sh -c 'git fetch $1'
 
 	# $1 = remote name; $2 = prefix path
-	subtree-pull = "!f() { git subtree pull --prefix $1 ;}; f"
+  subtree-pull = "!f() { git subtree pull --squash --prefix=$2 $1 master;}; f"
 
 	#git diff
 	dc = diff --cached
