@@ -11,4 +11,4 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-
+brew --prefix /usr/local/Cellar/z/1.8/etc/profile.d/z.sh
