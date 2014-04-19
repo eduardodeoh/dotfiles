@@ -191,3 +191,6 @@
 	#pull-request-master = !sh -c 'git update-develop && hub pull-request -h origin:master' -
 [push]
 	default = upstream
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
