@@ -12,7 +12,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh/oh-my-zsh/custom
 
 #Zsh Powerline Theme
 #https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
-if [ -f $ZSH_CUSTOM/powerline.zsh-theme ]
+if [ -f $ZSH_CUSTOM/oh-my-zsh-powerline-theme/powerline.zsh-theme ]
 then
 
   #Install patched fonts
