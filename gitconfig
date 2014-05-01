@@ -183,6 +183,10 @@
   ;$1 path to file for undo - Caution!
   undo = !sh -c 'git checkout -- $1' - 
 
+  ;Delete Tags
+  delete-tag-local = !sh -c 'git -d $1' -
+  delete-tag-remote = !sh -c 'git push origin :refs/tags/$1' -
+  delete-tag = !sh -c 'git -d $1 && git push origin :refs/tags/$1' -
 
 
 	#Verify this alias!
