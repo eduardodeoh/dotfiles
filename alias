@@ -1,5 +1,12 @@
 #alias uu="sudo apt-fast update && sudo apt-fast upgrade -y"
-alias -g gp="| grep -i"
-alias -s rb=vim
-alias ssh='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && ssh'
-alias git='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && git'
+#alias -g gp="| grep -i"
+#alias -s rb=vim
+#alias ssh='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && ssh'
+#alias git='eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa) && git'
+alias dbreloadall="bundle exec rake db:migrate:reset && bundle exec rake db:migrate:reset RAILS_ENV=test && bundle exec rake db:seed && bundle exec rake db:seed RAILS_ENV=test"
+alias dbreloadtest="RAILS_ENV=test bundle exec rake db:migrate:reset && RAILS_ENV=test bundle exec rake db:seed"
+alias dbreloadtestnoseed="RAILS_ENV=test bundle exec rake db:migrate:reset"
+alias bers="bundle exec rails server"
+alias berc="bundle exec rails console"
+alias dcp="docker-compose"
+alias emacs="/usr/local/Cellar/emacs/24.5/bin/emacs -nw"

@@ -5,10 +5,64 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Folder for all custom autocomplete functions not presents in Prezto
+fpath=($HOME/.zsh/completions $fpath)
+autoload -U compinit
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
-brew --prefix /usr/local/Cellar/z/1.8/etc/profile.d/z.sh
+
+if [ -f ~/.zshalias ]; then
+  source ~/.zshalias
+fi
+
+#DVM Docker Version Manager
+[[ -s "$(brew --prefix dvm)/dvm.sh" ]] && source "$(brew --prefix dvm)/dvm.sh"
+[[ -r $DVM_DIR/bash_completion ]] && . $DVM_DIR/bash_completion
+
+
+# Minikube docker access
+# eval $(minikube docker-env)
+
+#Boot2docker
+#eval "$(boot2docker shellinit 2> /dev/null)"
+
+# Docker
+#export DOCKER_HOST=tcp://127.0.0.1:2375
+
+#JENV
+eval "$(jenv init -)"
+
+#NPM
+#export NPM_PACKAGES=${HOME}/.npm-packages 
+#export NODE_PATH=$NPM_PACKAGES/lib/node_modules:$NODE_PATH
+#export PATH=$NPM_PACKAGES/bin:$PATH
+
+export NVM_DIR="/Users/eduardo/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# KIEX - Elixir Version Manager
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+# Erlang Version Mananger
+. /usr/local/opt/erlang_18_2_1/activate
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/eduardo/projetos/devops/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/eduardo/projetos/devops/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/eduardo/projetos/devops/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/eduardo/projetos/devops/google-cloud-sdk/completion.zsh.inc'
+fi
+
+# GNU UTILS
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+export PATH="$HOME/.yarn/bin:$PATH"

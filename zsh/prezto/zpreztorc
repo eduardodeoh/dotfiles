@@ -30,7 +30,6 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'directory' \
   'spectrum' \
-  'utility' \
   'completion' \
   'prompt' \
   'git' \
@@ -45,6 +44,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search'  \
   'ssh'\
 
+# 
+#  'utility' \
 #
 # Editor
 #
